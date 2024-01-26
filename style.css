@@ -1,0 +1,221 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: #09090b;
+  color: #E1EFFE;
+  font: 20px Poppins, sans-serif;
+  font-family: Poppins, sans-serif;
+  margin: 0;
+}
+
+.Strona_glowna,
+.O_nas{
+  scroll-margin-top: 6em;
+}
+
+body::-webkit-scrollbar{
+  width: 7px;
+  height: 8px;
+  background-color: #000;
+}
+body::-webkit-scrollbar-thumb{
+  background: #aaa;
+  border-radius: 1em;
+}
+.Home{
+  padding-top: 6em;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+header {
+  --text: #f4f4f4;
+  --text-inverse: #24252a;;
+  --background: #24252a;
+  position: fixed;
+  font-size: 26px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4em 2em;
+  transition: background 250ms ease-in;
+  background: var(--background);
+  color: var(--text);
+
+}
+
+.nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav__link {
+  --spacing: 1em;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  padding: calc(var(--spacing) / 2) var(--spacing);
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.nav__link:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: var(--spacing);
+  right: var(--spacing);
+  height: 2px;
+  background: currentColor;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+
+}
+
+.nav__link:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.buy{
+  display:flex; 
+  flex-direction: row; 
+}
+
+.nav__link--btn {
+  border: 1.5px solid currentColor;
+  border-radius: 1.2em;
+  margin-left: 1em;
+  transition: background 250ms ease-in-out;
+  letter-spacing: 1px;
+  padding: 0.75em 1.5em;
+}
+
+.nav__link--btn:hover {
+  background: var(--text);
+  color: var(--text-inverse);
+  border-color: var(--text);
+}
+
+.nav__link--btn::after {
+  display: none;
+}
+
+.nav__link--btn--highlight {
+  background: #24252a;
+  border-color: limegreen;
+  color: var(--text);
+}
+
+.nav__link--btn--highlight:hover {
+  background: var(--text);
+  border-color: var(--text);
+}
+
+.buy-button {
+  padding: 0.6em 1.2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.buy-button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-buy-button 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-buy-button {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.buy-button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@media (max-width: 800px) {
+  .Home{
+    padding-top: 8em;
+  }
+
+  header{
+    padding: 0.4em 1.5em;
+  }
+
+  .nav__list{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Strona_glowna,
+  .O_nas{
+    scroll-margin-top: 9em;
+  }
+
+.buy {
+  display: block;
+}
+  
+  #Sign_up{
+    margin-top: 1.2em;
+  }
+}
